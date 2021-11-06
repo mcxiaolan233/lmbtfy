@@ -74,13 +74,13 @@ $(function() {
                                 
                                 stepTimeout = setTimeout(function () {
                                     window.location = 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURIComponent(query);
-                                }, 2500);
+                                }, 1000);
                             });
                         }
                     }, 200);
                 }, 500);
             });
-        }, 1000);
+        }, 2500);
     }
     
     /* 提交 */
