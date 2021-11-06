@@ -69,7 +69,7 @@ $(function() {
                                 left: $searchSubmit.offset().left + $searchSubmit.width()  / 2 + 'px',
                                 top:  $searchSubmit.offset().top  + $searchSubmit.height() / 2 + 'px'
                             }, 1000, function () {
-                                $tips.html('<strong>怎么样，学会了吗？</strong>');
+                                $tips.html('<strong>还不会就被你整无语辣😅</strong>');
                                 $arrow.addClass('active');
                                 
                                 stepTimeout = setTimeout(function () {
