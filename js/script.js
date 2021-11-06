@@ -73,7 +73,7 @@ $(function() {
                                 $arrow.addClass('active');
                                 
                                 stepTimeout = setTimeout(function () {
-                                    window.location = + encodeURIComponent(query);
+                                    window.location = encodeURIComponent(query);
                                 }, 1000);
                             });
                         }
