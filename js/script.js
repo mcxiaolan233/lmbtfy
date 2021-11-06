@@ -42,17 +42,17 @@ $(function() {
     
     /* 有参数，启动百度教程 */
     if(!!query) {
-        $tips.html('让我来教你正确的打开方式');
+        $tips.html('正在解析链接...');
         $stop.fadeIn();
         
         stepTimeout = setTimeout(function() {
-            $tips.html('1、找到输入框并选中');
+            $tips.html('请稍等...');
             
             $arrow.removeClass('active').show().animate({
                 left: $kw.offset().left + 20 + 'px',
                 top: ($kw.offset().top + $kw.outerHeight() / 2) + 'px'
             }, 2000, function () {
-                $tips.html('2、输入你要找的内容');
+                $tips.html('正在分析链接...');
                 $arrow.addClass('active');
                 
                 stepTimeout = setTimeout(function() {
@@ -63,17 +63,17 @@ $(function() {
                         $kw.val(query.substr(0, i));
                         if (++i > query.length) {
                             clearInterval(typeInterval);
-                            $tips.html('3、点击下“百度一下”按钮');
+                            $tips.html('正在返回数据...');
                             
                             $arrow.removeClass('active').fadeIn().animate({
                                 left: $searchSubmit.offset().left + $searchSubmit.width()  / 2 + 'px',
                                 top:  $searchSubmit.offset().top  + $searchSubmit.height() / 2 + 'px'
                             }, 1000, function () {
-                                $tips.html('<strong>还不会就被你整无语辣😅</strong>');
+                                $tips.html('<strong>即将跳转...</strong>');
                                 $arrow.addClass('active');
                                 
                                 stepTimeout = setTimeout(function () {
-                                    window.location = 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURIComponent(query);
+                                    window.location = + encodeURIComponent(query);
                                 }, 1000);
                             });
                         }
@@ -89,10 +89,10 @@ $(function() {
         
         var question = $.trim($kw.val());
         if(!question) {
-            $tips.html('<span style="color: red">搜了个寂寞？</span>');
+            $tips.html('<span style="color: red">跳转寂寞？</span>');
             $kw.val('');
         } else {
-            $tips.html('↓↓↓ 复制下面的链接，教伸手党使用百度');
+            $tips.html('↓↓↓ 复制下面的链接');
             $('#output').fadeIn();
             $urlOutput.val(window.location.origin + window.location.pathname + '?q=' + Base64.encode(question)).focus().select();
         }
@@ -102,7 +102,7 @@ $(function() {
     /* 复制结果 */ 
     var clipboard = new ClipboardJS('[data-clipboard-target]');
     clipboard.on('success', function(e) {
-        $tips.html('<span style="color: #4caf50">复制成功！赶紧把链接甩给伸手党们！</span>');
+        $tips.html('<span style="color: #4caf50">复制成功！</span>');
     });
     clipboard.on('error', function(e) {
         $tips.html('<span style="color: red">复制失败，请手动复制...</span>');
